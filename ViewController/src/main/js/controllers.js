@@ -1,20 +1,47 @@
-'use strict';
+'use strict'
 
-var trainingControllers = angular.module('trainingControllers', []);
+var trainingControllers = angular.module('trainingControllers', [])
 
-trainingControllers.controller('DashboardCtrl', ['$scope', 'Dashboard',
-  function($scope, Dashboard) {
-    //$scope.phones = Dashboard.query();
-    //$scope.orderProp = 'age';
-  }]);
 
-trainingControllers.controller('OtherCtrl', ['$scope', '$routeParams', 'Other',
-  function($scope, $routeParams, Other) {
+trainingControllers.controller('NavBarCtrl', ['$scope', '$http',
+    function($scope, $http) {
+        $http.get('json/navigation.json')
+            .then(function(response) {
+                $scope.navigation = response.data.navigation
+            }, function(response) {
+                console.error('navigation response error', response)
+            })
+    }])
+
+trainingControllers.controller('DashboardCtrl', ['$scope', '$routeParams', 'Dashboard',
+    function($scope, $routeParams, Dashboard) {
 //    $scope.phone = Phone.get({phoneId: $routeParams.phoneId}, function(phone) {
-//      $scope.mainImageUrl = phone.images[0];
-//    });
+//      $scope.mainImageUrl = phone.images[0]
+//    })
 //
 //    $scope.setImage = function(imageUrl) {
-//      $scope.mainImageUrl = imageUrl;
-//    };
-  }]);
+//      $scope.mainImageUrl = imageUrl
+//    }
+    }])
+
+trainingControllers.controller('Page1Ctrl', ['$scope', '$routeParams',
+    function($scope, $routeParams) {
+//    $scope.phone = Phone.get({phoneId: $routeParams.phoneId}, function(phone) {
+//      $scope.mainImageUrl = phone.images[0]
+//    })
+//
+//    $scope.setImage = function(imageUrl) {
+//      $scope.mainImageUrl = imageUrl
+//    }
+    }])
+
+trainingControllers.controller('Page2Ctrl', ['$scope', '$routeParams',
+    function($scope, $routeParams) {
+//    $scope.phone = Phone.get({phoneId: $routeParams.phoneId}, function(phone) {
+//      $scope.mainImageUrl = phone.images[0]
+//    })
+//
+//    $scope.setImage = function(imageUrl) {
+//      $scope.mainImageUrl = imageUrl
+//    }
+    }])

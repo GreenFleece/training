@@ -1,0 +1,16 @@
+{
+  "navigation" : [
+    {
+      "title":"Dashboard",
+      "link":"dashboard"
+    },
+    {
+      "title":"Test Page 1",
+      "link":"page1"
+    },
+    {
+      "title":"Test Page 2",
+      "link":"page2"
+    }
+  ]
+}

@@ -11,15 +11,19 @@ var trainingModule = angular.module('trainingModule', [
 trainingModule.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
-      when('/dashboard', {
-        templateUrl: 'views/dashboard.html',
-        controller: 'DashboardCtrl'
-      }).
-//      when('/other/:otherId', {
-//        templateUrl: 'views/other-view.html',
-//        controller: 'OtherCtrl'
-//      }).
-      otherwise({
-        redirectTo: '/dashboard'
-      });
+        when('/dashboard', {
+            templateUrl: 'views/dashboard.html',
+            controller: 'DashboardCtrl'
+        }).
+        when('/page1', {
+            templateUrl: 'views/page1.html',
+            controller: 'Page1Ctrl'
+        }).
+        when('/page2', {
+            templateUrl: 'views/page2.html',
+            controller: 'Page2Ctrl'
+        }).
+        otherwise({
+            redirectTo: '/dashboard'
+        });
   }]);
