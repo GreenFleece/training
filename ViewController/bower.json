@@ -20,7 +20,6 @@
     "test",
     "tests"
   ],
-
   "dependencies": {
     "angular": "1.4.x",
     "angular-mocks": "1.4.x",
@@ -28,7 +27,7 @@
     "bootstrap": "~3.1.1",
     "angular-route": "1.4.x",
     "angular-resource": "1.4.x",
-    "angular-animate": "1.4.x"
+    "angular-animate": "1.4.x",
+    "vis": "~4.11.0"
   }
-
 }

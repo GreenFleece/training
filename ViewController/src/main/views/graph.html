@@ -1,0 +1,51 @@
+<div class="container-fluid" ng-controller="GraphCtrl">
+    <form name="graphModelForm">
+        <div class="form-horizonal">
+            <div class="form-group">
+                <label for="nodePrefix" class="control-label col-md-2 form-label">Node Prefix:</label>
+                <div class="col-md-10">
+                    <input type="text" name="nodePrefix" id="nodePrefix" ng-model="graph.model.prefix">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="nodePrefix" class="control-label col-md-2 form-label"># of Nodes:</label>
+                <div class="col-md-10">
+                    <input type="number" name="numNodes" ng-model="graph.model.nodeCount" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="nodePrefix" class="control-label col-md-2 form-label"># of Edges:</label>
+                <div class="col-md-10">
+                    <input type="number" name="numEdges" ng-model="graph.model.edgeCount" max="{{getMaxEdges(graph.model.nodeCount)}}" required>
+                    <span ng-show="graphModelForm.numEdges.$error.max">Too many edges!</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-2"/>
+                <div class="col-md-10">
+                    <input type="button" name="genRandomGraph" ng-click="randomGraph(graph)" value="Generate Random Graph">
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="row">
+        <div id="edgeList" class="col col-md-2">
+            <p><b>Graph Edges</b></p>
+            <table class="table table-condensed">
+                <thead>
+                    <tr>
+                        <th>From</th>
+                        <th>To</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="edge in graph.edges">
+                        <td>{{edge.from}}</td>
+                        <td>{{edge.to}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="graph" class="col col-md-10" />
+    </div>
+</div>

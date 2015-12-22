@@ -2,9 +2,18 @@
 
 var trainingServices = angular.module('trainingServices', ['ngResource']);
 
-trainingServices.factory('Dashboard', ['$resource',
-  function($resource){
-    return $resource('temp/:something.json', {}, {
-      query: {method:'GET', params:{otherId:'other'}, isArray:true}
+trainingServices.factory('Graph', ['$resource',
+  function($resource) {
+    return $resource('json/graph.json', {}, {
+      get: {method:'GET', isArray:false},
+      save: {method:'POST',
+      	     //headers: {
+      	     //	'Content-Type': 'text/plain',
+      	     //	'Accept': 'text/plain'
+      	     //}
+      		}
     });
   }]);
+
+//http://192.168.56.1:8000/src/main/json/graph.json
+//json/graph.json
