@@ -1,16 +1,23 @@
 {
-  "navigation" : [
-    {
-      "title":"Dashboard",
-      "link":"dashboard"
-    },
-    {
-      "title":"Graph",
-      "link":"graph"
-    },
-    {
-      "title":"Test Page 2",
-      "link":"page2"
-    }
-  ]
+    "navigation": [{
+        "title": "Home",
+        "link": "/home"
+    }, {
+        "title": "Test Page",
+        "link": "/test-page"
+    }, {
+        "title": "Graphing",
+        "dropdown": [{
+            "title": "Graph",
+            "link": "/graph"
+        }, {
+            "title": "Test Page",
+            "link": "/test-page"
+        }, {
+            "separator": true
+        }, {
+            "title": "Test Page",
+            "link": "/test-page"
+        }]
+    }]
 }

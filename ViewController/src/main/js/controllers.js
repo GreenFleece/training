@@ -3,8 +3,22 @@
 var trainingControllers = angular.module('trainingControllers', []);
 
 
-trainingControllers.controller('NavBarCtrl', ['$scope', '$http',
-    function($scope, $http) {
+trainingControllers.controller('NavBarCtrl', ['$scope', '$http', '$location',
+    function($scope, $http, $location) {
+        $scope.isActive = function(nav) {
+            if (nav.dropdown) {
+                var isActiveDropdown = false;
+                nav.dropdown.forEach(function(subnav) {
+                    if ($location.path() === subnav.link) {
+                        isActiveDropdown = true;
+                    }
+                });
+                return isActiveDropdown;
+            } else {
+                return $location.path() === nav.link;
+            }
+        };
+
         $http.get('json/navigation.json')
             .then(function(response) {
                 $scope.navigation = response.data.navigation;
@@ -14,7 +28,7 @@ trainingControllers.controller('NavBarCtrl', ['$scope', '$http',
     }
 ]);
 
-trainingControllers.controller('DashboardCtrl', ['$scope', '$routeParams',
+trainingControllers.controller('HomeCtrl', ['$scope', '$routeParams',
     function($scope, $routeParams) {
 
     }
@@ -62,7 +76,7 @@ trainingControllers.controller('GraphCtrl', ['$scope', '$routeParams', 'Graph',
     }
 ]);
 
-trainingControllers.controller('Page2Ctrl', ['$scope', '$routeParams',
+trainingControllers.controller('TestPageCtrl', ['$scope', '$routeParams',
     function($scope, $routeParams) {
         //    $scope.phone = Phone.get({phoneId: $routeParams.phoneId}, function(phone) {
         //      $scope.mainImageUrl = phone.images[0]

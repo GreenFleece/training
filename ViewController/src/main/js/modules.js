@@ -23,20 +23,20 @@ trainingModule.factory('httpRequestInterceptor', [
 trainingModule.config(['$routeProvider', '$httpProvider',
   function($routeProvider, $httpProvider) {
     $routeProvider.
-        when('/dashboard', {
-            templateUrl: 'views/dashboard.html',
-            controller: 'DashboardCtrl'
+        when('/home', {
+            templateUrl: 'views/home.html',
+            controller: 'HomeCtrl'
         }).
         when('/graph', {
             templateUrl: 'views/graph.html',
             controller: 'GraphCtrl'
         }).
-        when('/page2', {
-            templateUrl: 'views/page2.html',
-            controller: 'Page2Ctrl'
+        when('/test-page', {
+            templateUrl: 'views/test-page.html',
+            controller: 'TestPageCtrl'
         }).
         otherwise({
-            redirectTo: '/dashboard'
+            redirectTo: '/home'
         });
 
     $httpProvider.interceptors.push('httpRequestInterceptor');
